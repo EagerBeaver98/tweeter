@@ -1,0 +1,28 @@
+nav {
+  height: 120px;
+  background-color: #4056A1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+  justify-content: space-around;
+}
+
+@font-face {
+  font-family: 'Bungee';
+  src: url('../../Bungee/Bungee-Regular.ttf');
+}
+
+#title {
+  font-family: 'Bungee'
+}
+
+@font-face {
+  font-family: "Source-Sans-Pro";
+  src: url("../../Source_Sans_Pro/SourceSansPro-Light.ttf");
+}
+
+#dropdown {
+  font-family: 'Source-Sans-Pro';
+}

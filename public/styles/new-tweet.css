@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Bungee';
+  src: url('../../Bungee/Bungee-Regular.ttf');
+}
+
+.new-tweet {
+  background-color: bisque;
+  align-items: center;
+  
+}
+
+#tweet-text {
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
+
+/* .counter {
+  display: flex;
+  
+} */
+
+.buttons {
+  border-top-color: black;
+  border-top-style: solid;
+  font-family: "Bungee";
+  display: flex;
+  justify-content: space-between;
+}

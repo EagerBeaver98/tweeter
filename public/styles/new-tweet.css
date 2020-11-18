@@ -10,7 +10,7 @@
   width: 90%;
 }
 
-#tweet-text {
+.tweet-text {
   border-style: none;
   background-color: bisque;
 }
@@ -34,3 +34,20 @@
   color: white;
 }
 
+#tweet-container {
+  border: 3px;
+  border-color: black;
+  border-style: solid;
+  opacity: 95%;
+}
+
+#tweet-header {
+  display: flex;
+  flex-direction: row;
+}
+
+#tweet-username {
+  display: flex;
+  position: absolute;
+  right: 10%;
+}

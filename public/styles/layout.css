@@ -3,13 +3,22 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+@font-face {
+  font-family: 'Bungee';
+  src: url('../../Bungee/Bungee-Regular.ttf');
+}
+@font-face {
+  font-family: "Source-Sans-Pro";
+  src: url("../../Source_Sans_Pro/SourceSansPro-Light.ttf");
+}
+
 html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
+  font-family: "Source-Sans-Pro";
 }
-
 /*
  * Global layout stuff
  */
@@ -26,7 +35,18 @@ body {
 .container {
   margin-left: 5%;
   margin-right: 5%;
+  width: 90%;
   display: flex;
   justify-content: center;
   background-color: #f4f1ec;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.text-line {
+  display: flex;
+  flex-direction: column;
 }

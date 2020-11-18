@@ -6,18 +6,19 @@
 .new-tweet {
   background-color: bisque;
   align-items: center;
-  
+  font-family: "Bungee";
+  width: 90%;
 }
 
 #tweet-text {
-  border-bottom-style: solid;
-  border-bottom-color: black;
+  border-style: none;
+  background-color: bisque;
 }
 
-/* .counter {
+.counter {
   display: flex;
-  
-} */
+  font-family: "Bungee";
+}
 
 .buttons {
   border-top-color: black;
@@ -25,4 +26,11 @@
   font-family: "Bungee";
   display: flex;
   justify-content: space-between;
+  
 }
+
+.enter {
+  background-color: blue;
+  color: white;
+}
+

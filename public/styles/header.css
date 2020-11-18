@@ -4,4 +4,5 @@ header {
   align-items: center;
   flex-direction: column;
   background-color: aquamarine;
+  padding-top: 15%;
 }

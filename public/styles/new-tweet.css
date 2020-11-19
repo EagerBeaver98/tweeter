@@ -21,6 +21,8 @@
 }
 
 .buttons {
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-top-color: black;
   border-top-style: solid;
   font-family: "Bungee";
@@ -34,19 +36,19 @@
   color: white;
 }
 
-#tweet-container {
+.tweet-container {
   border: 3px;
   border-color: black;
   border-style: solid;
   opacity: 95%;
 }
 
-#tweet-header {
+.tweet-header {
   display: flex;
   flex-direction: row;
 }
 
-#tweet-username {
+.tweet-username {
   display: flex;
   position: absolute;
   right: 10%;

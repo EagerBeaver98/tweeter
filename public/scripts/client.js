@@ -65,11 +65,14 @@ const renderTweets = function(tweets) {
 // const $tweet = createTweetElement(tweetPlaceholder);
 // console.log($tweet);
 $(document).ready(() => {
-  renderTweets(tweetPlaceholder);
   $("button").submit((event) => {
     event.preventDefault();
-    $.ajax({ url: '/tweets/',  method: "POST" })//data
+    const $JSON = JSON.parse($.getJSON("/tweets/"));
+    renderTweets($JSON);
+    $.ajax({ url: '/tweets/',  method: "POST", data: $.serialize(event) })//data
       .then(() => {
+        tweetPlaceholder.push(event);
+        console.log(event);
       });
   });
 });

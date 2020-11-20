@@ -5,31 +5,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const tweetPlaceholder = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = function(tweetData) {
   // eslint-disable-next-line no-undef
@@ -41,7 +21,7 @@ const createTweetElement = function(tweetData) {
   </article>
   <article class="tweet-body">
     <article class="tweet-text">
-      <a>${tweetData.content.text}</a>
+      <a>${escape(tweetData.content.text)}</a>
       <br>
     </article>
     <footer>
@@ -57,24 +37,31 @@ const renderTweets = function(tweets) {
   for (let x = 0; x < tweets.length; x++) {
     let tweetElement = createTweetElement(tweets[x]);
     tweetContainer.prepend(tweetElement);
-    console.log(tweetElement);
-    
   }
 };
 
+const renderError = function(error) {
+  $("#error-message").html('').prepend(error);
+};
 
 // eslint-disable-next-line no-undef
 $(document).ready(function() {
   const loadTweets = function() {
     $.getJSON("/tweets/", function(data) {
-      // console.log(data);
       renderTweets(data);
     });
   };
   loadTweets();
   $("form").on("submit", function(event) {
     event.preventDefault();
-    $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()})
-      .then(loadTweets());
+    if ($(this).serialize().length > 5 && $(this).serialize().length <= 145) {
+      renderError("");
+      $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()});
+      loadTweets();
+    } else if ($(this).serialize().length <= 5) {
+      renderError("No tweet entered");
+    } else if ($(this).serialize().length > 145) {
+      renderError("Tweet is too long!");
+    }
   });
 });

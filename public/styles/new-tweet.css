@@ -53,3 +53,8 @@
   position: absolute;
   right: 10%;
 }
+
+#error-message {
+  color: red;
+  font-size: 23px;
+}

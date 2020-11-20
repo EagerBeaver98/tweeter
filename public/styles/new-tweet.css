@@ -46,6 +46,11 @@
   margin-bottom: 10px;
 }
 
+.tweet-container:hover {
+  box-shadow: 10px 5px 3px grey;
+  
+}
+
 .tweet-header {
   display: flex;
   flex-direction: row;

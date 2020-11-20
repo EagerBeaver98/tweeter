@@ -57,6 +57,7 @@ $(document).ready(function() {
     if ($(this).serialize().length > 5 && $(this).serialize().length <= 145) {
       renderError("");
       $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()});
+      this.reset();
       loadTweets();
     } else if ($(this).serialize().length <= 5) {
       renderError("No tweet entered");

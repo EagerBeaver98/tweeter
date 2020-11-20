@@ -4,10 +4,12 @@
 }
 
 .new-tweet {
+  padding-right: 5%;
+  padding-left: 5%;
   background-color: bisque;
   align-items: center;
   font-family: "Bungee";
-  width: 90%;
+  width: 100%;
 }
 
 .tweet-text {
@@ -41,6 +43,7 @@
   border-color: black;
   border-style: solid;
   opacity: 95%;
+  margin-bottom: 10px;
 }
 
 .tweet-header {

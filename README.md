@@ -11,6 +11,14 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+
+## Screenshots
+
+Widescreen view https://github.com/EagerBeaver98/tweeter/blob/master/docs/Widescreen-layout.png
+
+Tall view https://github.com/EagerBeaver98/tweeter/blob/master/docs/square-layout.png
+
+
 ## Dependencies
 
 - Express

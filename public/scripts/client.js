@@ -47,32 +47,34 @@ const createTweetElement = function(tweetData) {
     <footer>
       <small>posted ${tweetData.created_at}</small>
     </footer>
-    </article>`);
+   </article>
+  </article>`);
   return $tweet;
 };
 
 const renderTweets = function(tweets) {
   let tweetContainer = $('.tweet-container-main').html('');
-  for (const tweet of tweets) {
-    let tweetElement = createTweetElement(tweet);
+  for (let x = 0; x < tweets.length; x++) {
+    let tweetElement = createTweetElement(tweets[x]);
     tweetContainer.prepend(tweetElement);
     console.log(tweetElement);
     
   }
 };
 
+
 // eslint-disable-next-line no-undef
-// const $tweet = createTweetElement(tweetPlaceholder);
-// console.log($tweet);
-$(document).ready(() => {
-  $("button").submit((event) => {
+$(document).ready(function() {
+  const loadTweets = function() {
+    $.getJSON("/tweets/", function(data) {
+      // console.log(data);
+      renderTweets(data);
+    });
+  };
+  loadTweets();
+  $("form").on("submit", function(event) {
     event.preventDefault();
-    const $JSON = JSON.parse($.getJSON("/tweets/"));
-    renderTweets($JSON);
-    $.ajax({ url: '/tweets/',  method: "POST", data: $.serialize(event) })//data
-      .then(() => {
-        tweetPlaceholder.push(event);
-        console.log(event);
-      });
+    $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()})
+      .then(loadTweets());
   });
 });

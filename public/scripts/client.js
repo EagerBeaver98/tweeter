@@ -58,6 +58,7 @@ $(document).ready(function() {
       renderError("");
       $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()});
       this.reset();
+      $(".buttons output").text(140).css("color", "#545149");
       loadTweets();
     } else if ($(this).serialize().length <= 5) {
       renderError("No tweet entered");

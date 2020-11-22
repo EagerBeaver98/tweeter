@@ -4,7 +4,11 @@ $(document).ready(() => {
   $("textarea").on('keydown', function() {
     let $numOfCharacters = $(this).val().length;
     let $subbedCharacters = 140 - $numOfCharacters;
-    $(".buttons output").text($subbedCharacters);
+    if ($subbedCharacters <= 30) {
+      $(".buttons output").text($subbedCharacters).css("color", "red");
+    } else {
+      $(".buttons output").text($subbedCharacters).css("color", "#545149");
+    }
   });
 });
 

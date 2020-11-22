@@ -11,7 +11,7 @@ const escape =  function(str) {
   return div.innerHTML;
 };
 
-const createTweetElement = function(tweetData) {
+const createTweetElement = function(tweetData) { //composes each tweet
   // eslint-disable-next-line no-undef
   const $tweet = $(`<article class="tweet-container">
     <article class="tweet-header">
@@ -32,7 +32,7 @@ const createTweetElement = function(tweetData) {
   return $tweet;
 };
 
-const renderTweets = function(tweets) {
+const renderTweets = function(tweets) { //adds each tweet to the page
   let tweetContainer = $('.tweet-container-main').html('');
   for (let x = 0; x < tweets.length; x++) {
     let tweetElement = createTweetElement(tweets[x]);
@@ -40,13 +40,13 @@ const renderTweets = function(tweets) {
   }
 };
 
-const renderError = function(error) {
+const renderError = function(error) { //shows error if any
   $("#error-message").html('').prepend(error);
 };
 
 // eslint-disable-next-line no-undef
 $(document).ready(function() {
-  const loadTweets = function() {
+  const loadTweets = function() { //loads tweets from database
     $.getJSON("/tweets/", function(data) {
       renderTweets(data);
     });
@@ -54,11 +54,11 @@ $(document).ready(function() {
   loadTweets();
   $("form").on("submit", function(event) {
     event.preventDefault();
-    if ($(this).serialize().length > 5 && $(this).serialize().length <= 145) {
+    if ($(this).serialize().length > 5 && $(this).serialize().length <= 145) { //checks for length error
       renderError("");
-      $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()});
+      $.ajax({url: "/tweets/", method: "POST", data: $(this).serialize()}); //posts new tweet to database
       this.reset();
-      $(".buttons output").text(140).css("color", "#545149");
+      $(".buttons output").text(140).css("color", "#545149"); //resets counter
       loadTweets();
     } else if ($(this).serialize().length <= 5) {
       renderError("No tweet entered");

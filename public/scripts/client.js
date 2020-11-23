@@ -13,6 +13,14 @@ const escape =  function(str) {
 
 const createTweetElement = function(tweetData) { //composes each tweet
   // eslint-disable-next-line no-undef
+
+  const dateCreated = new Date(tweetData.created_at);
+  const today = new Date(Date.now());
+  let dateDifference = dateCreated.getTime() - today.getTime();
+  dateDifference = Math.round(dateDifference / (1000 * 3600 * 24));
+  if (dateDifference < 0) {
+    dateDifference /= -1;
+  }
   const $tweet = $(`<article class="tweet-container">
     <article class="tweet-header">
     <img src=${tweetData.user.avatars} style="width:50px;height:50px;">
@@ -25,7 +33,7 @@ const createTweetElement = function(tweetData) { //composes each tweet
       <br>
     </article>
     <footer>
-      <small>posted ${tweetData.created_at}</small>
+      <small fontsize=10px>Posted ${dateDifference} days ago</small>
     </footer>
    </article>
   </article>`);

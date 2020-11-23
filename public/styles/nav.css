@@ -10,6 +10,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 300;
 }
 
 @font-face {
@@ -18,7 +19,8 @@ nav {
 }
 
 #title {
-  font-family: 'Bungee'
+  font-family: 'Bungee';
+  font-size: larger;
 }
 
 @font-face {

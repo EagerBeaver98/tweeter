@@ -33,7 +33,12 @@ const createTweetElement = function(tweetData) { //composes each tweet
       <br>
     </article>
     <footer>
-      <small fontsize=10px>Posted ${dateDifference} days ago</small>
+      <a>Posted ${dateDifference} days ago</a>
+      <a id="twitter-images">
+        <img src="./images/flag.png" width=30px>
+        <img src="./images/like_button.png" width=30px>
+        <img src="./images/repost_button.png" width=25px>
+      </a>
     </footer>
    </article>
   </article>`);

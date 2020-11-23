@@ -48,7 +48,10 @@
 
 .tweet-container:hover {
   box-shadow: 10px 5px 3px grey;
-  
+}
+
+.tweet-container:hover #twitter-images {
+  opacity: 100%;
 }
 
 .tweet-header {
@@ -66,3 +69,19 @@
   color: red;
   font-size: 23px;
 }
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 3px;
+  padding: 5px;
+  margin: 5px;
+  border-top-color: black;
+  border-top-style: solid;
+  font-size: 16px;
+}
+
+#twitter-images {
+  opacity: 0%;
+}
+
